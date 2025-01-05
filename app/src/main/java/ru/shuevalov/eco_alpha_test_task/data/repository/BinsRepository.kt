@@ -8,7 +8,5 @@ interface BinsRepository {
 
     suspend fun insert(bin: Bin)
 
-    suspend fun update(bin: Bin)
-
     suspend fun delete(bin: Bin)
 }

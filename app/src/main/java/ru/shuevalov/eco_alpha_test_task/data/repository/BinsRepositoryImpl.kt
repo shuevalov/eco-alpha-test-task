@@ -9,7 +9,5 @@ class BinsRepositoryImpl(private val binDao: BinDao) : BinsRepository {
 
     override suspend fun insert(bin: Bin) = binDao.insertBin(bin)
 
-    override suspend fun update(bin: Bin) = binDao.updateBin(bin)
-
     override suspend fun delete(bin: Bin) = binDao.deleteBin(bin)
 }
