@@ -8,15 +8,15 @@ import androidx.room.PrimaryKey
 data class Bin(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
 
-    @ColumnInfo(name = "bin") val bin: Int,
+//    @ColumnInfo(name = "bin") val bin: Int,
 
-    @ColumnInfo(name = "country") val country: String,
+//    @ColumnInfo(name = "country") val country: String,
 
     @ColumnInfo(name = "scheme") val scheme: String,
 
-    @ColumnInfo(name = "bankUrl") val bankUrl: String,
+//    @ColumnInfo(name = "bankUrl") val bankUrl: String,
 
-    @ColumnInfo(name = "bankNumber") val bankNumber: String,
+//    @ColumnInfo(name = "bankNumber") val bankNumber: String,
 
-    @ColumnInfo(name = "bankCity") val bankCity: String
+//    @ColumnInfo(name = "bankCity") val bankCity: String
 )

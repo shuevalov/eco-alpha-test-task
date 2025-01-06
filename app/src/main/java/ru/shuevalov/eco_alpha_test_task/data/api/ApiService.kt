@@ -6,5 +6,5 @@ import ru.shuevalov.eco_alpha_test_task.data.model.Bin
 
 interface ApiService {
     @GET("{id}")
-    suspend fun getBinById(@Path("id") binId: Int): Bin
+    suspend fun getBinById(@Path("id") id: String): Bin
 }

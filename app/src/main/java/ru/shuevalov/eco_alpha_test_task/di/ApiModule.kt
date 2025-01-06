@@ -1,14 +1,16 @@
 package ru.shuevalov.eco_alpha_test_task.di
 
+import com.google.gson.GsonBuilder
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.shuevalov.eco_alpha_test_task.data.api.ApiService
 
-val BASE_URL = "https://binlist.net/"
+const val BASE_URL = "https://lookup.binlist.net/"
+val gson = GsonBuilder().setLenient().create()!!
 
 fun provideConverterFactory(): GsonConverterFactory =
-    GsonConverterFactory.create()
+    GsonConverterFactory.create(gson)
 
 fun provideRetrofit(): Retrofit =
     Retrofit
