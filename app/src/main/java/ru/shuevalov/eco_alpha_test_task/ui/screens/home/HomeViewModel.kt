@@ -1,7 +1,5 @@
 package ru.shuevalov.eco_alpha_test_task.ui.screens.home
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,19 +18,10 @@ class HomeViewModel(
 
     fun setCurrentBin(id: String) {
         viewModelScope.launch {
-            val bin = repository.getBinById(id)
+            val bin = repository.getBinFromHttp(id)
             repository.insert(bin)
             _uiState.update { it.copy(currentBin = setOf(bin)) }
         }
-    }
-
-    fun getBinById(id: String): Bin {
-        var bin: Bin? = null
-        viewModelScope.launch {
-            bin = repository.getBinById(id)
-            repository.insert(bin!!)
-        }
-        return bin!!
     }
 }
 

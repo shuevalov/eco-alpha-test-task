@@ -10,5 +10,5 @@ interface AppRepository {
 
     suspend fun delete(bin: Bin)
 
-    suspend fun getBinById(id: String): Bin
+    suspend fun getBinFromHttp(id: String): Bin
 }

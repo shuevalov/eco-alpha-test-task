@@ -15,5 +15,5 @@ class AppRepositoryImpl(
 
     override suspend fun delete(bin: Bin) = binDao.deleteBin(bin)
 
-    override suspend fun getBinById(id: String): Bin = cloud.getBinById(id)
+    override suspend fun getBinFromHttp(id: String): Bin = cloud.getBinFromHttp(id)
 }
