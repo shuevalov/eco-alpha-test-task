@@ -29,6 +29,12 @@ fun BinsScreen(viewModel: BinsViewModel = koinViewModel()) {
     val uiState by viewModel.uiState.collectAsState()
     val searchText by viewModel.searchText.collectAsState()
 
+    BinsContent(
+        uiState = uiState,
+        searchText = searchText,
+        onSearchTextChange = viewModel::onSearchTextChange,
+        deleteBin = viewModel::deleteBin
+    )
 }
 
 @Composable
@@ -41,7 +47,7 @@ fun BinsContent(
     Column(
        modifier = Modifier
            .fillMaxSize()
-           .padding(16.dp)
+           .padding(32.dp)
     ) {
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),

@@ -24,21 +24,22 @@ class BinsViewModel(
     private val _isSearching = MutableStateFlow(false)
     val isSearching = _isSearching.asStateFlow()
 
-    val uiState = repository.getAllBins().map {
-        BinsUiState(it)
-    }.combine(_searchText) { bins, text ->
-        if (text.isBlank()) {
-            bins.bins
-        } else {
-            bins.bins.filter {
-                it.scheme.contains(text) // todo: change to bin number
+    val uiState: StateFlow<BinsUiState> =
+        repository.getAllBins().combine(_searchText) { bins, text ->
+            if (text.isBlank()) {
+                bins
+            } else {
+                bins.filter {
+                    it.scheme.contains(text) // todo: change to bin number
+                }
             }
-        }
-    }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000L),
-        initialValue = BinsUiState()
-    )
+        }.map {
+            BinsUiState(it)
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000L),
+            initialValue = BinsUiState()
+        )
 
     fun onSearchTextChange(text: String) {
         _searchText.value = text
