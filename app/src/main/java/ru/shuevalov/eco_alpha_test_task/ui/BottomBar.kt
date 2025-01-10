@@ -11,10 +11,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 
@@ -31,7 +29,7 @@ fun BottomBar(navController: NavHostController) {
             title = "Home",
             selectedIcon = Icons.Filled.Home,
             unselectedIcon = Icons.Outlined.Home
-        ),BottomNavigationItem(
+        ), BottomNavigationItem(
             title = "History",
             selectedIcon = Icons.Filled.Menu,
             unselectedIcon = Icons.Outlined.Menu
