@@ -17,9 +17,6 @@ interface BinDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertBin(bin: Bin)
 
-    @Update
-    suspend fun updateBin(bin: Bin)
-
     @Delete
     suspend fun deleteBin(bin: Bin)
 }

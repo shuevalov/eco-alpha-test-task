@@ -11,7 +11,8 @@ val databaseModule = module {
             androidApplication(),
             BinsDatabase::class.java,
             "bin_database"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
     single { get<BinsDatabase>().getDao() }
 }

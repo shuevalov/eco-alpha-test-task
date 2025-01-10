@@ -2,7 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    id("com.google.devtools.ksp")
+
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -43,8 +45,8 @@ android {
 dependencies {
 
     val room_version = "2.6.1"
-    val koin_version = "4.0.0"
-    val nav_version = "2.8.4"
+    val koin_version = "4.0.1"
+    val nav_version = "2.8.5"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -65,7 +67,7 @@ dependencies {
     // room
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 
     // koin
     implementation("io.insert-koin:koin-core:$koin_version")
@@ -74,9 +76,15 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-compose:$koin_version")
 
     // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     // navigation
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
+    implementation("org.jetbrains.kotlin:kotlin-metadata-jvm:2.1.0")
 }
